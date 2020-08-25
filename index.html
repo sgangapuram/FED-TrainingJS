@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Parcel Sandbox</title>
+	<meta charset="UTF-8" />
+	<script>
+	var myName = "Srinivas";
+	var yourName = "Gangapuram";
+	var isMorning = false;
+	var isWeekday = true;
+	var isWeekdayMorning = isMorning && isWeekday;
+	var sum = 20+9;
+	var printMorning = isMorning? 'Yesss' : 'Noooo';
+	var strictCompare = true;
+	var nonStrictCompare = false;
+ 
+	var comparisionResult = strictCompare? 10==='10' : 10=='10'; 
+	
+	console.log('Hello ' + myName +' '+yourName+' '+sum);
+
+	console.log('Is it morning now? '+printMorning);
+
+	console.log('comparision result' +comparisionResult);
+
+	if(isWeekdayMorning){
+		console.log('Its a weekday morning!! Lets do work!!');
+	} else if(isMorning){
+			console.log('Its a morning!! Good morning!!');
+	} else if(isWeekday){
+		console.log('Hope it went well at work!!');
+	} else{
+		console.log('Lets get to sleep now.!!');
+	}
+
+
+
+	</script>
+</head>
+
+<body>
+	<div id="app"></div>
+
+	<script src="src/index.js">
+	</script>
+</body>
+
+</html>
