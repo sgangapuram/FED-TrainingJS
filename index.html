@@ -1,48 +1,211 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <script>
+      var myName = "Srinivas";
+      var yourName = "Gangapuram";
+      var isMorning = false;
+      var isWeekday = true;
+      var isWeekdayMorning = isMorning && isWeekday;
+      var sum = 20 + 9;
+      var printMorning = isMorning ? "Yesss" : "Noooo";
+      var strictCompare = true;
+      var nonStrictCompare = false;
 
-<head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
-	<script>
-	var myName = "Srinivas";
-	var yourName = "Gangapuram";
-	var isMorning = false;
-	var isWeekday = true;
-	var isWeekdayMorning = isMorning && isWeekday;
-	var sum = 20+9;
-	var printMorning = isMorning? 'Yesss' : 'Noooo';
-	var strictCompare = true;
-	var nonStrictCompare = false;
- 
-	var comparisionResult = strictCompare? 10==='10' : 10=='10'; 
-	
-	console.log('Hello ' + myName +' '+yourName+' '+sum);
+      var comparisionResult = strictCompare ? 10 === "10" : 10 == "10";
+      console.log(comparisionResult);
 
-	console.log('Is it morning now? '+printMorning);
+      // console.log('Hello ' + myName +' '+yourName+' '+sum);
+      // console.log('Is it morning now? '+printMorning);
+      // console.log('comparision result: ' +comparisionResult);
 
-	console.log('comparision result' +comparisionResult);
+      if (isWeekdayMorning) {
+        console.log("Its a weekday morning!! Lets do work!!");
+      } else if (isMorning) {
+        console.log("Its a morning!! Good morning!!");
+      } else if (isWeekday) {
+        console.log("Hope it went well at work!!");
+      } else {
+        console.log("Lets get to sleep now.!!");
+      }
 
-	if(isWeekdayMorning){
-		console.log('Its a weekday morning!! Lets do work!!');
-	} else if(isMorning){
-			console.log('Its a morning!! Good morning!!');
-	} else if(isWeekday){
-		console.log('Hope it went well at work!!');
-	} else{
-		console.log('Lets get to sleep now.!!');
-	}
+      switch (isMorning) {
+        case true:
+          console.log("Its still morning!!!!");
+          break;
+        case false:
+          console.log("Its not morning anymore!!!!");
+          break;
+        default:
+          console.log("I don't even know what it is :) ");
+          break;
+      }
 
+      // for (let i = 0; i <= 10; i++) {
+      //   console.log(`hello from for loop: ${i}`);
+      // }
 
+      const i = 7;
+      console.log(`hello after for loop and i is: ${i}`);
+      //string template with --back ticks
+      console.log(`My name ${myName} ${yourName} , So \"how are you\"?`);
 
-	</script>
-</head>
+      let someObj = {};
+      let someArray = [];
 
-<body>
-	<div id="app"></div>
+      someObj = {
+        prop1: "value1",
+        prop2: "value2",
+        prop3: { p4: "val4", p5: "val5", p6: 123 }
+      };
 
-	<script src="src/index.js">
-	</script>
-</body>
+      var p5Key = "p5";
+      // someObj.prop3.
 
+      var lb = ["player1", "player2", "player3"];
+      var lb2 = lb.map((element) => element + "abc");
+      var lb3 = lb2.map((element, index) => {
+        let newVar = element + index;
+        // console.log(newVar);
+        return newVar;
+      });
+      var lb4 = lb2.map((element, index) => element + index);
+      console.log("******************");
+      console.log(lb2);
+      console.log("******************");
+      console.log(lb3);
+      console.log("******************");
+      console.log(lb4);
+
+      var lb5 = lb2.map((element, index) => ({ prop1: "Hello world" + index }));
+      console.log("******************");
+      console.log(lb5);
+      console.log("----" + someObj.prop3.p6);
+      console.log(someObj.prop3.p5);
+      console.log(someObj.prop3["p5"]);
+      console.log(someObj.prop3["p5"]);
+      console.log(someObj.prop3[p5Key]);
+
+      console.log(someObj);
+      console.log(someObj.prop3.p4);
+      console.log(someObj.prop3.p6);
+
+      function Person(fName, lName) {
+        this.fName = fName;
+        this.lName = lName;
+      }
+      var person1 = new Person();
+
+      let arrFirst = ["one", "two", "three"];
+
+      console.log(arrFirst.push("four"));
+      console.log(JSON.parse(JSON.stringify(arrFirst)));
+      arrFirst.unshift("first");
+      console.log(arrFirst);
+      console.log("-------");
+
+      console.log(person1 instanceof Object);
+      console.log(someObj instanceof Object);
+      console.log(someArray instanceof Object);
+      console.log(typeof person1);
+      console.log(typeof someObj);
+      console.log(typeof someArray);
+      console.log(person1 instanceof Person);
+      console.log(Person instanceof Object);
+
+      var obj1 = {
+        primProp1: "oldVal1",
+        primProp2: "val2",
+        primProp3: "val3",
+        propComplex: { p1: "oldv1", p2: "oldv2" }
+      };
+      console.log("--------");
+
+      var anonymousFun = (obj2) => {
+        var newObj = { ...obj1 };
+        newObj.primProp1 = "newVal1";
+        return newObj;
+      };
+      console.log(anonymousFun(obj1));
+      console.log(obj1);
+      var obj2 = obj1;
+
+      var copyObj = function (obj) {
+        let newObjCopy = { ...obj };
+        newObjCopy.primProp1 = "newVal1";
+        newObjCopy.propComplex = { p1: "newv1", p2: "newv2" };
+        // return newObjCopy;
+      };
+      console.log(obj1);
+      console.log(obj2);
+
+      let obj3 = copyObj(obj1);
+      // obj1.map((obj1)=> ({obj1.primProp1="newVal1"}));
+      console.log("******Obj1 After copy******");
+      console.log(obj1);
+      console.log("******Obj3 After copy******");
+      console.log(obj3);
+
+      let smallFun = (param1) => ({ prop1: "Hello World" });
+      let smallArrFun = (param1) => ["Hello", "World", param1];
+      console.log(smallFun(10));
+      console.log(smallArrFun(10));
+
+      let newArr = smallArrFun(10).map((ele) => ele + 111);
+      console.log(newArr);
+
+      const players = [
+        {
+          fn: "player1",
+          rank: 1
+        },
+        {
+          fn: "player2",
+          rank: 2
+        },
+        {
+          fn: "player3",
+          rank: 3
+        },
+        {
+          fn: "player4",
+          rank: 4
+        },
+        {
+          fn: "player5",
+          rank: 5
+        }
+      ];
+
+      const podiumPlayers = players.filter((player) => player.rank <= 3);
+
+      console.log(players);
+      players[0].fn = "newPlayer1";
+      console.log(podiumPlayers);
+
+      const premArr = ["sure1", "sure2", "sure3"];
+      console.log(premArr);
+      console.log("-----updating----");
+      const updatedPremArr = premArr.map((element) => element + "fam");
+      console.log(updatedPremArr);
+      console.log(premArr);
+
+      const apiCall = () => {
+        const dbResult = { fn: "Rod", ln: "Nolan", isValidUser: true };
+        return dbResult.thisDoesNotExist;
+      };
+
+      const isUserLoggedIn = apiCall();
+
+      console.log(isUserLogedIn);
+    </script>
+    <div id="app"></div>
+    <script src="src/index.js"></script>
+  </head>
+
+  <body>
+    <h1>Hello World!!</h1>
+  </body>
 </html>
